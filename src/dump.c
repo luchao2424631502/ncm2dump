@@ -209,7 +209,7 @@ header_error:
 int work_convert(char *input_path)
 {
 	//int fd = open("./test3.ncm", O_RDWR | O_CREAT);
-	int fd = open(input_path, O_RDWR | O_CREAT);
+	int fd = open(input_path, O_RDWR | O_CREAT, 0666);
 	if (-1 == fd)
 		return -1;
 
