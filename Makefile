@@ -1,11 +1,10 @@
-CC=gcc
-TARGET=ncm2dump
-INCLUDE=-I./include/
-LIBS=-L./lib/ -lcjson -lpthread
-SRC=$(wildcard ./src/*.c)
+.PHONY: lib src clean
+src: lib
+	$(MAKE) -C src
 
-all:
-	$(CC) -o $(TARGET) $(INCLUDE) -O2 $(SRC) $(LIBS)
+lib: 
+	$(MAKE) -C lib
 
 clean:
-	rm -rf $(TARGET)
+	$(MAKE) -C lib clean
+	$(MAKE) -C src clean
